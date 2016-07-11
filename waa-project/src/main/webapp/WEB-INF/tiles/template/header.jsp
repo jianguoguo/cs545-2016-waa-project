@@ -1,6 +1,3 @@
-
-
-<div class="span-24">
-	<img src="/amazing/resource/images/a.png" 
-		width="190" style="padding-top:10px;" />
-</div>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+AMAZING
+<!--<img src="<spring:url value="/resources/images/logo.png" />" width="50" /> -->

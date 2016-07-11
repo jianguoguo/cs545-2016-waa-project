@@ -4,7 +4,21 @@
 
 <tiles-definitions>
 	
-	<definition name="baseLayout" template="/WEB-INF/tiles/template/baseLayout.jsp">
+    <definition name="baseLayout" template="/WEB-INF/tiles/template/baseLayout.jsp">
+        <put-attribute name="title" value="Sample Title" />
+        <put-attribute name="header" value="/WEB-INF/tiles/template/header.jsp"/>
+        <put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
+    </definition>
+	
+    <definition name="products" extends="baseLayout">
+        <put-attribute name="title" value="Amazing Home" />
+        <put-attribute name="content" value="/WEB-INF/views/shoppingcart/products.jsp" />
+    </definition>
+    
+    <!--
+    <definition name="baseLayout" template="/WEB-INF/tiles/template/baseLayout.jsp">
 		<put-attribute name="title" value="Sample Title" />
 		<put-attribute name="heading" value="" />
                 <put-attribute name="header" value="/WEB-INF/tiles/template/header.jsp"/>
@@ -85,5 +99,5 @@
 		<put-attribute name="heading" value="Thank you" />
 		<put-attribute name="content" value="/WEB-INF/flows/checkout/thankCustomer.jsp" />
 	</definition>
-	
+    -->    
 </tiles-definitions>
