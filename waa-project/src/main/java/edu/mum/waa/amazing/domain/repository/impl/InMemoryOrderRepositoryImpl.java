@@ -18,9 +18,9 @@ public class InMemoryOrderRepositoryImpl implements OrderRepository{
 	}
 
 	public Long saveOrder(Order order) {
-		order.setOrderId(getNextOrderId());
-		listOfOrders.put(order.getOrderId(), order);
-		return order.getOrderId();
+		order.setId(getNextOrderId());
+		listOfOrders.put(order.getId(), order);
+		return order.getId();
 	}
 
 	private synchronized long getNextOrderId() {

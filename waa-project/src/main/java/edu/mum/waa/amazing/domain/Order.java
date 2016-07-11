@@ -1,81 +1,135 @@
 package edu.mum.waa.amazing.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
-public class Order  implements Serializable{
+public class Order implements Serializable {
 
-	private static final long serialVersionUID = -3560539622417210365L;
-	
-	private Long orderId;
-	private Cart cart;
-	private Customer customer;
-	private ShippingDetail shippingDetail;
-	
-	public Order() {
-		this.customer = new Customer();
-		this.shippingDetail = new ShippingDetail();
-	}
+    private static final long serialVersionUID = -3560539622417210365L;
 
-	public Long getOrderId() {
-		return orderId;
-	}
+    // TO DO: id is auto-generated
+    private Long id;
+    private Cart cart;
+    private BigDecimal shippingFee;
+    private BigDecimal tax;
+    private BigDecimal grandTotal;
+    private BigDecimal totalBeforeTax;
 
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
+    public Order() {
 
-	public Cart getCart() {
-		return cart;
-	}
+    }
 
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
+    public Cart getCart() {
+        return cart;
+    }
 
-	public Customer getCustomer() {
-		return customer;
-	}
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
-	public ShippingDetail getShippingDetail() {
-		return shippingDetail;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 829;
+        int result = 1;
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        return result;
+    }
 
-	public void setShippingDetail(ShippingDetail shippingDetail) {
-		this.shippingDetail = shippingDetail;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Order other = (Order) obj;
+        if (getId() == null) {
+            if (other.getId() != null) {
+                return false;
+            }
+        } else if (!id.equals(other.id)) {
+            return false;
+        }
+        return true;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 829;
-		int result = 1;
-		result = prime * result + ((orderId == null) ? 0 : orderId.hashCode());
-		return result;
-	}
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Order other = (Order) obj;
-		if (orderId == null) {
-			if (other.orderId != null)
-				return false;
-		} else if (!orderId.equals(other.orderId))
-			return false;
-		return true;
-	}
+    /**
+     * @return the shippingFee
+     */
+    public BigDecimal getShippingFee() {
+        return shippingFee;
+    }
+
+    /**
+     * @param shippingFee the shippingFee to set
+     */
+    public void setShippingFee(BigDecimal shippingFee) {
+        this.shippingFee = shippingFee;
+    }
+
+    /**
+     * @return the tax
+     */
+    public BigDecimal getTax() {
+        return tax;
+    }
+
+    /**
+     * @param tax the tax to set
+     */
+    public void setTax(BigDecimal tax) {
+        this.tax = tax;
+    }
+
+    /**
+     * @return the grandTotal
+     */
+    public BigDecimal getGrandTotal() {
+        return grandTotal;
+    }
+
+    /**
+     * @param grandTotal the grandTotal to set
+     */
+    public void setGrandTotal(BigDecimal grandTotal) {
+        this.grandTotal = grandTotal;
+    }
+
+    /**
+     * @return the totalBeforeTax
+     */
+    public BigDecimal getTotalBeforeTax() {
+        return totalBeforeTax;
+    }
+
+    /**
+     * @param totalBeforeTax the totalBeforeTax to set
+     */
+    public void setTotalBeforeTax(BigDecimal totalBeforeTax) {
+        this.totalBeforeTax = totalBeforeTax;
+    }
 
 
 }

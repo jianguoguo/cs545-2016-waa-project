@@ -25,8 +25,4 @@ public class HomeController {
         return "redirect:/products";
     }
 
-//    @RequestMapping("/products")
-//    public String goHome() {
-//            return "products";
-//    }
 }

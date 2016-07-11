@@ -21,20 +21,20 @@ public class InMemoryProductRepository implements ProductRepository{
 	public InMemoryProductRepository() {
 		Product iphone = new Product("P1234","iPhone 5s", new BigDecimal(500));
 		iphone.setDescription("Apple iPhone 5s smartphone with 4.00-inch 640x1136 display and 8-megapixel rear camera");
-		iphone.setCategory("Smart Phone");
-		iphone.setManufacturer("Apple");
+		iphone.getCategory().setName("Smart Phone");
+		iphone.getManufacturer().setName("Apple");
 		iphone.setUnitsInStock(1000);
 		
 		Product laptop_dell = new Product("P1235","Dell Inspiron", new BigDecimal(700));
 		laptop_dell.setDescription("Dell Inspiron 14-inch Laptop (Black) with 3rd Generation Intel Core processors");
-		laptop_dell.setCategory("Laptop");
-		laptop_dell.setManufacturer("Dell");
+		laptop_dell.getCategory().setName("Laptop");
+		laptop_dell.getManufacturer().setName("Dell");
 		laptop_dell.setUnitsInStock(1000);
 		
 		Product tablet_Nexus = new Product("P1236","Nexus 7", new BigDecimal(300));
 		tablet_Nexus.setDescription("Google Nexus 7 is the lightest 7 inch tablet With a quad-core Qualcomm Snapdragon? S4 Pro processor");
-		tablet_Nexus.setCategory("Tablet");
-		tablet_Nexus.setManufacturer("Google");
+		tablet_Nexus.getCategory().setName("Tablet");
+		tablet_Nexus.getManufacturer().setName("Google");
 		tablet_Nexus.setUnitsInStock(1000);
 		
 		listOfProducts.add(iphone);
@@ -51,7 +51,7 @@ public class InMemoryProductRepository implements ProductRepository{
 		Product productById = null;
 		
 		for(Product product : listOfProducts) {
-			if(product!=null && product.getProductId()!=null && product.getProductId().equals(productId)){
+			if(product!=null && product.getId()!=null && product.getId().equals(productId)){
 				productById = product;
 				break;
 			}
@@ -68,7 +68,7 @@ public class InMemoryProductRepository implements ProductRepository{
 		List<Product> productsByCategory = new ArrayList<Product>();
 			
 		for(Product product: listOfProducts) {
-			if(category.equalsIgnoreCase(product.getCategory())){
+			if(category.equalsIgnoreCase(product.getCategory().getName())){
 				productsByCategory.add(product);
 			}
 		}
@@ -85,7 +85,7 @@ public class InMemoryProductRepository implements ProductRepository{
 		if(criterias.contains("brand")) {
 			for(String brandName: filterParams.get("brand")) {
 				for(Product product: listOfProducts) {
-					if(brandName.equalsIgnoreCase(product.getManufacturer())){
+					if(brandName.equalsIgnoreCase(product.getManufacturer().getName())){
 						productsByBrand.add(product);
 					}
 				}

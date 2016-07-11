@@ -9,7 +9,8 @@ public class Cart implements Serializable{
 
 	private static final long serialVersionUID = -4045729241960416615L;
 	
-	private String cartId;
+	private String id;
+        private User user;
 	private Map<String,CartItem> cartItems;
 	private BigDecimal grandTotal;
 	
@@ -18,18 +19,11 @@ public class Cart implements Serializable{
 		grandTotal = new BigDecimal(0);
 	}
 	
-	public Cart(String cartId) {
+	public Cart(String id) {
 		this();
-		this.cartId = cartId;
+		this.id = id;
 	}
 	
-	public String getCartId() {
-		return cartId;
-	}
-
-	public void setCartId(String cartId) {
-		this.cartId = cartId;
-	}
 
 	public Map<String, CartItem> getCartItems() {
 		return cartItems;
@@ -44,7 +38,7 @@ public class Cart implements Serializable{
 	}
 	
 	public void addCartItem(CartItem item) {
-		String productId = item.getProduct().getProductId();
+		String productId = item.getProduct().getId();
 		
 		if(cartItems.containsKey(productId)) {
 			CartItem existingCartItem = cartItems.get(productId);
@@ -57,7 +51,7 @@ public class Cart implements Serializable{
 	}
 	
 	public void removeCartItem(CartItem item) {
-		String productId = item.getProduct().getProductId();
+		String productId = item.getProduct().getId();
 		cartItems.remove(productId);
 		updateGrandTotal();
 	}
@@ -73,7 +67,7 @@ public class Cart implements Serializable{
 	public int hashCode() {
 		final int prime = 71;
 		int result = 1;
-		result = prime * result + ((cartId == null) ? 0 : cartId.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -86,11 +80,39 @@ public class Cart implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Cart other = (Cart) obj;
-		if (cartId == null) {
-			if (other.cartId != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!cartId.equals(other.cartId))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

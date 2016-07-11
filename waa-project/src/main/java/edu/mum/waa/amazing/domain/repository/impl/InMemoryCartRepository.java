@@ -19,11 +19,11 @@ public class InMemoryCartRepository implements CartRepository{
 	
 	
 	public Cart create(Cart cart) {
-		if(listOfCarts.keySet().contains(cart.getCartId())) {
-			throw new IllegalArgumentException(String.format("Can not create a cart. A cart with the give id (%) aldrady exist",cart.getCartId()));
+		if(listOfCarts.keySet().contains(cart.getId())) {
+			throw new IllegalArgumentException(String.format("Can not create a cart. A cart with the give id (%) aldrady exist",cart.getId()));
 		}
 
-		listOfCarts.put(cart.getCartId(), cart);
+		listOfCarts.put(cart.getId(), cart);
 		return cart;
 	}
 	

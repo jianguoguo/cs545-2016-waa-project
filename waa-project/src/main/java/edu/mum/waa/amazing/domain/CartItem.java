@@ -7,6 +7,8 @@ public class CartItem implements Serializable{
 
 	private static final long serialVersionUID = -4314427089896169685L;
 	
+        // TO DO: id is auto-generated
+        private String id;
 	private Product product;
 	private int quantity;
 	private BigDecimal totalPrice;
@@ -71,4 +73,18 @@ public class CartItem implements Serializable{
 			return false;
 		return true;
 	}
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
 }
