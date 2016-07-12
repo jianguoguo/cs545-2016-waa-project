@@ -46,12 +46,16 @@ public class Product implements Serializable {
 
     public Product() {
         super();
+        manufacturer = new Manufacturer();
+        category = new Category();
     }
 
     public Product(String id, String name, BigDecimal unitPrice) {
         this.id = id;
         this.name = name;
         this.unitPrice = unitPrice;
+        manufacturer = new Manufacturer();
+        category = new Category();
     }
 
     public String getName() {
