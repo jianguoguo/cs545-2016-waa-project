@@ -12,29 +12,38 @@ import edu.mum.waa.amazing.domain.repository.ProductRepository;
 import edu.mum.waa.amazing.service.ProductService;
 
 @Service
-public class ProductServiceImpl implements ProductService{
-	
-	@Autowired
-	private ProductRepository productRepository;
+public class ProductServiceImpl implements ProductService {
 
-	public List<Product> getAllProducts() {
-		return productRepository.getAllProducts();
-	}
+    @Autowired
+    private ProductRepository productRepository;
 
-	public Product getProductById(String productID) {
-		return productRepository.getProductById(productID);
-	}
-	
-	public List<Product> getProductsByCategory(String category) {
-		return productRepository.getProductsByCategory(category);
-	}
+    @Override
+    public List<Product> getAllProducts() {
+        return productRepository.getAllProducts();
+    }
 
-	public Set<Product> getProductsByFilter(Map<String, List<String>> filterParams) {
-		return productRepository.getProductsByFilter(filterParams);
-	}
-	
-	public void addProduct(Product product) {
-		   productRepository.addProduct(product);
-	}
+    @Override
+    public Product getProductById(String productID) {
+        return productRepository.getProductById(productID);
+    }
+
+    @Override
+    public List<Product> getProductsByCategory(String category) {
+        return productRepository.getProductsByCategory(category);
+    }
+
+    @Override
+    public Set<Product> getProductsByFilter(Map<String, List<String>> filterParams) {
+        return productRepository.getProductsByFilter(filterParams);
+    }
+
+    public void addProduct(Product product) {
+        productRepository.addProduct(product);
+    }
+
+    @Override
+    public List<Product> findAll() {
+        return productRepository.getAllProducts();
+    }
 
 }

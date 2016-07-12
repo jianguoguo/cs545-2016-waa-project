@@ -15,6 +15,9 @@
         <link rel="stylesheet" href="<spring:url value="/resources/css/styles.css" />">
         
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+        <script src="<spring:url value="/resources/js/app.js" />"></script>
     </head>
 
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -36,7 +39,7 @@
             </div>
         </nav>     
 
-        <section>
+        <section class="container-fluid">
             <tiles:insertAttribute name="content" />
         </section>
 

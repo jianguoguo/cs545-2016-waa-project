@@ -14,7 +14,7 @@
 	
     <definition name="products" extends="baseLayout">
         <put-attribute name="title" value="Amazing Home" />
-        <put-attribute name="content" value="/WEB-INF/views/shoppingcart/products.jsp" />
+        <put-attribute name="content" value="/WEB-INF/views/shoppingCart/products.jsp" />
     </definition>
     
     <!--

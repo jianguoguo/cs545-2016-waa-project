@@ -27,8 +27,10 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.mum.waa.amazing.domain.Product;
 import edu.mum.waa.amazing.exception.NoProductsFoundUnderCategoryException;
 import edu.mum.waa.amazing.exception.ProductNotFoundException;
+import edu.mum.waa.amazing.service.ICategoryService;
 import edu.mum.waa.amazing.service.ProductService;
 import edu.mum.waa.amazing.validator.ProductValidator;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/products")
@@ -37,12 +39,34 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @Autowired
-    private ProductValidator productValidator;
+    //@Autowired
+    //private ProductValidator productValidator;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String goProducts() {
+    public String goProducts(Model model) {
         return "products";
+    }
+    
+    
+    // RESTful services
+    @RequestMapping(value = "/bestSeller/{categoryId}/{searchByName}", method = RequestMethod.GET)
+    public @ResponseBody List<Product> getListBestSeller(@PathVariable("categoryId") String id,
+            @PathVariable("searchByName") String searchStr) {
+        if ("all".equalsIgnoreCase(id)) {
+            return productService.findAll();    // dummy data
+        } else {
+            return productService.findAll();
+        }
+    }
+    
+    @RequestMapping(value = "/inTrend/{categoryId}/{searchByName}", method = RequestMethod.GET)
+    public @ResponseBody List<Product> getListInTrend(@PathVariable("categoryId") String id,
+            @PathVariable("searchByName") String searchStr) {
+        if ("all".equalsIgnoreCase(id)) {
+            return productService.findAll();    // dummy data
+        } else {
+            return productService.findAll();
+        }
     }
 
 //	@RequestMapping

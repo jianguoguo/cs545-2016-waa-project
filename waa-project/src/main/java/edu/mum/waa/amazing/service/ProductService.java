@@ -7,14 +7,15 @@ import java.util.Set;
 import edu.mum.waa.amazing.domain.Product;
 
 public interface ProductService {
+    List<Product> findAll();
 
-	List<Product> getAllProducts();
+    List<Product> getAllProducts();
 
-	Product getProductById(String productID);
-	
-	List<Product> getProductsByCategory(String category);
+    Product getProductById(String productID);
 
-	Set<Product> getProductsByFilter(Map<String, List<String>> filterParams);
-	
-	void addProduct(Product product);
+    List<Product> getProductsByCategory(String category);
+
+    Set<Product> getProductsByFilter(Map<String, List<String>> filterParams);
+
+    void addProduct(Product product);
 }
